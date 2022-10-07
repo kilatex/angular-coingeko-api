@@ -1,6 +1,14 @@
 <div class="container">
-  <h1>Hello World from Angular</h1>
+  <h1 class="my-3 text-center">Angular Coingeko Api</h1>
 
+  <form action="get">
+    <div class="mb-3">
+      <input 
+      (keyup)="searchCoin()" type="text" 
+      class="form-control bg-dark text-white"  
+      placeholder="Search Coin" [(ngModel)] = "coinToSearch" name="coinToSearch">
+    </div>
+  </form>
 <table class="table table-dark">
   <thead>
     <tr >
@@ -8,8 +16,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let coin of coins; let i = index">
-      <td class="text-muted"> {{i}} </td>
+    <tr *ngFor="let coin of filteredCoins; let i = index">
+      <td class="text-muted"> {{i+1}} </td>
       <td> 
         <img [src]="coin.image" alt="{{coin.name}}" style="width: 2rem;">
       </td>
